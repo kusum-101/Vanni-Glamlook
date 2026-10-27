@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "emitDeclarationOnly": true,
+    "allowJs": true,
+    "outDir": "node_modules/.tmp/tsc-node"
+  },
+  "include": ["vite.config.ts", "tailwind.config.ts", "api", "scripts/site-config.mjs"]
+}

@@ -1,0 +1,80 @@
+@import '@fontsource/cormorant-garamond/latin-500.css';
+@import '@fontsource/cormorant-garamond/latin-600.css';
+@import '@fontsource/cormorant-garamond/latin-500-italic.css';
+@import '@fontsource-variable/jost/wght.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1, h2, h3 {
+    @apply font-display font-medium;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.wine.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible {
+    outline-color: theme('colors.gold.light');
+  }
+  ::selection {
+    @apply bg-blush text-wine-deep;
+  }
+}
+
+@layer components {
+  .page { @apply mx-auto w-full max-w-page px-5 sm:px-8; }
+  .eyebrow { @apply text-[0.72rem] font-medium uppercase tracking-eyebrow text-wine; }
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 text-[0.95rem] font-medium tracking-wide transition-[background-color,color,box-shadow,transform] duration-200;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { @apply bg-wine text-ivory hover:bg-wine-deep; }
+  .btn-ghost { @apply text-wine ring-1 ring-inset ring-wine/30 hover:bg-wine hover:text-ivory hover:ring-wine; }
+  .btn-light { @apply bg-ivory text-wine-deep hover:bg-blush; }
+  .btn-outline-light { @apply text-ivory ring-1 ring-inset ring-ivory/40 hover:bg-ivory hover:text-wine-deep; }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover, .link-underline:focus-visible { background-size: 100% 1px; }
+  .field {
+    @apply block w-full rounded-lg border border-ink/15 bg-white/70 px-4 py-3 text-base text-ink placeholder:text-muted/60 transition-colors focus:border-wine focus:outline-none focus:ring-2 focus:ring-wine/20;
+  }
+  .field[aria-invalid='true'] { @apply border-red-700 ring-2 ring-red-700/15; }
+}
+
+/* Gentle entrance for the hero only; disabled for reduced motion. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

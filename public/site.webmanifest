@@ -1,0 +1,8 @@
+{
+  "name": "Vaani's Glamlook Makeup Studio & Academy",
+  "short_name": "Vaani's Glamlook",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }],
+  "theme_color": "#3A0F1F",
+  "background_color": "#FBF7F2",
+  "display": "browser"
+}
